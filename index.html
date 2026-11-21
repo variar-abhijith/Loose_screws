@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProcureFlow AI | Procurement Operations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-icon">P</span>
+      <div>
+        <h2>ProcureFlow</h2>
+        <small>AI OPERATIONS</small>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#dashboard" class="active">▦ Dashboard</a>
+      <a href="#new-request">＋ New Request</a>
+      <a href="#transactions">▤ Transactions</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <span class="status-dot"></span>
+      Automation system
+      <small>Version 1.0</small>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>Procurement Dashboard</h1>
+        <p>Manage your procurement operations intelligently.</p>
+      </div>
+      <div class="user-avatar">A</div>
+    </header>
+
+    <section id="dashboard" class="stats">
+      <article class="stat-card">
+        <span>Total Requests</span>
+        <h2 id="totalCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <span>Auto Processed</span>
+        <h2 id="autoCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <span>Pending Approval</span>
+        <h2 id="pendingCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <span>Needs Correction</span>
+        <h2 id="exceptionCount">0</h2>
+      </article>
+    </section>
+
+    <section id="new-request" class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>New Purchase Request</h2>
+          <p>Submit a request for automated processing.</p>
+        </div>
+        <span class="tag">AI POWERED</span>
+      </div>
+
+      <form id="requestForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="requester">Requester name</label>
+            <input id="requester" required maxlength="80"
+              placeholder="Your name" />
+          </div>
+
+          <div class="field">
+            <label for="department">Department</label>
+            <select id="department" required>
+              <option value="">Select department</option>
+              <option>Engineering</option>
+              <option>Finance</option>
+              <option>Operations</option>
+              <option>Marketing</option>
+              <option>Human Resources</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="vendor">Vendor name</label>
+            <input id="vendor" required maxlength="120"
+              placeholder="Vendor or supplier" />
+          </div>
+
+          <div class="field">
+            <label for="amount">Estimated amount (INR)</label>
+            <input id="amount" type="number" min="1"
+              max="100000000" step="0.01" required
+              placeholder="e.g. 25000" />
+          </div>
+
+          <div class="field full">
+            <label for="category">Purchase category</label>
+            <select id="category" required>
+              <option value="">Select category</option>
+              <option>Equipment</option>
+              <option>Raw Materials</option>
+              <option>Software</option>
+              <option>Office Supplies</option>
+              <option>Services</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="description">Purchase description</label>
+            <textarea id="description" rows="4" required
+              maxlength="2000"
+              placeholder="Explain what you need, why you need it, and any relevant details..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn">
+          Submit for AI Processing →
+        </button>
+
+        <p id="formMessage" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="transactions" class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Recent Transactions</h2>
+          <p>Requests submitted during this session.</p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Request ID</th>
+              <th>Vendor</th>
+              <th>Amount</th>
+              <th>Department</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="transactionList">
+            <tr>
+              <td colspan="5" class="empty">
+                No transactions submitted yet.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
